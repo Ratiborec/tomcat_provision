@@ -1,0 +1,17 @@
+[Unit]
+Description=Tomcat
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+WorkingDirectory=/usr/local/tomcat
+
+ExecStart=/usr/local/tomcat/bin/startup.sh
+ExecStop=/usr/local/bin/shutdown.sh
+
+User=tomcat
+Group=tomcat
+
+[Install]
+WantedBy=multi-user.target
